@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 export default function CinematicHero() {
@@ -270,10 +271,10 @@ export default function CinematicHero() {
               ارتقا بده ...
             </h2>
 
-            <button className="hero-button">
+            <Link href={'/products'} className="hero-button">
               مشاهده محصولات
               <span>↗</span>
-            </button>
+            </Link>
           </div>
 
         </div>

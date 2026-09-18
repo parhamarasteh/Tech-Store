@@ -5,7 +5,7 @@ import { ArrowLeft, Sparkles } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative h-[calc(100vh-80px)] overflow-hidden bg-zinc-950 text-white">
+    <section className="relative h-[calc(100vh-50px)] overflow-hidden bg-zinc-950 text-white">
       <div className="absolute inset-0">
         <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
         <div className="absolute -bottom-40 right-0 h-[500px] w-[500px] rounded-full bg-zinc-700/20 blur-3xl" />
@@ -53,7 +53,7 @@ export default function Hero() {
               </Link>
 
               <Link
-                href="/category/mobile"
+                href="/category"
                 dir="rtl"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
               >

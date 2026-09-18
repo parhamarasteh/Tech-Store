@@ -38,11 +38,11 @@ export default function Categories() {
           </div>
 
           <Link
-            href="/products"
+            href="/category"
             dir="rtl"
             className="inline-flex items-center gap-2 text-sm font-medium"
           >
-            مشاهده همه محصولات
+            مشاهده همه دسته‌بندی‌ها
             <ArrowLeft className="h-4 w-4" />
           </Link>
         </div>

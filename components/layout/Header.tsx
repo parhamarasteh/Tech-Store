@@ -67,7 +67,7 @@ export default function Header() {
           </Link>
 
           <Link
-            href="/category/mobile"
+            href="/category"
             dir="rtl"
             className="text-sm font-medium text-zinc-600 transition hover:text-black"
           >
