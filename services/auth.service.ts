@@ -29,19 +29,14 @@ export async function signUp(data: SignUpRequest): Promise<AuthResponse> {
 export async function signIn(data: SignInRequest): Promise<AuthResponse> {
   const response = await fetch(`${API_URL}/api/auth/sign-in`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
     credentials: "include",
+    body: JSON.stringify(data),
   });
-
   const result = await response.json();
-
   if (!response.ok) {
     throw new Error(result.message || "Login failed");
   }
-
   return result;
 }
 
@@ -51,13 +46,10 @@ export async function getSession(): Promise<SessionResponse> {
     credentials: "include",
     cache: "no-store",
   });
-
   const result = await response.json();
-
   if (!response.ok) {
     throw new Error(result.message || "Session is invalid");
   }
-
   return result;
 }
 

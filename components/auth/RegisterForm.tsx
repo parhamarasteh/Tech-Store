@@ -122,7 +122,7 @@ export default function RegisterForm() {
 
         {!errors.password && (
           <p dir="rtl" className="text-xs text-gray-500">
-            رمز عبور باید حداقل ۸ کاراکتر باشد.
+            رمز عبور باید حداقل 6 کاراکتر باشد.
           </p>
         )}
       </div>
