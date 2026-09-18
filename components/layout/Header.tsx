@@ -12,7 +12,6 @@ export default function Header() {
 
   const {
     isAuthenticated,
-    loading: authLoading,
   } = useAuth();
 
   const itemCount = useCartStore((state) =>
@@ -112,23 +111,31 @@ export default function Header() {
             )}
           </Link>
 
-          {!authLoading && (
+          
             <Link
               href={
                 isAuthenticated
                   ? "/dashboard"
                   : "/auth/login"
               }
-              className="flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-zinc-100"
+              className={
+                isAuthenticated
+                  ? "flex h-10 items-center justify-center rounded-full px-3 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 hover:text-black"
+                  : "flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-zinc-100"
+              }
               aria-label={
                 isAuthenticated
                   ? "داشبورد"
                   : "ورود"
               }
             >
-              <User className="h-5 w-5" />
+              {isAuthenticated ? (
+                <span dir="rtl">داشبورد</span>
+              ) : (
+                <User className="h-5 w-5" />
+              )}
             </Link>
-          )}
+          
 
         </div>
 

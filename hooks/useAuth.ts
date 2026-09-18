@@ -4,40 +4,36 @@ import { useEffect, useState } from "react";
 import { getSession } from "../services/auth.service";
 
 export function useAuth() {
-  const [authorized, setAuthorized] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(
+    null
+  );
 
   useEffect(() => {
-    let mounted = true;
+    let cancelled = false;
 
-    async function checkSession() {
+    const checkSession = async () => {
       try {
-        const session = await getSession();
+        const result = await getSession();
 
-        if (mounted) {
-          setAuthorized(session.authorized);
+        if (!cancelled) {
+          setIsAuthenticated(result.authorized);
         }
       } catch {
-        if (mounted) {
-          setAuthorized(false);
-        }
-      } finally {
-        if (mounted) {
-          setLoading(false);
+        if (!cancelled) {
+          setIsAuthenticated(false);
         }
       }
-    }
+    };
 
-    checkSession();
+    void checkSession();
 
     return () => {
-      mounted = false;
+      cancelled = true;
     };
   }, []);
 
   return {
-    authorized,
-    loading,
-    isAuthenticated: authorized,
+    isAuthenticated: isAuthenticated === true,
+    authLoading: isAuthenticated === null,
   };
 }
